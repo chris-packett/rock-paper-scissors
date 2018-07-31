@@ -18,14 +18,6 @@ const updatePlayerName = () => {
   document.querySelector('#player-name-display').textContent = playerName
 }
 
-const compareForRock = () => {
-  compareWithComputer('Rock')
-}
-
-const compareForPaper = () => {
-  compareWithComputer('Paper')
-}
-
 const compareWithComputer = (playerSelection) => {
   const rockWin = playerSelection === 'Rock' && randomGuess === 'Scissors'
   const paperWin = playerSelection === 'Paper' && randomGuess === 'Rock'
@@ -33,6 +25,8 @@ const compareWithComputer = (playerSelection) => {
 
   if (playerSelection === randomGuess) {
     randomComputerGuess()
+    const message = 'You and the computer picked the same thing! Try again'
+    document.querySelector('#output').textContent = message
   }
   else if (rockWin || paperWin || scissorWin) {
     document.querySelector('#output').textContent = 'Good job'
@@ -44,7 +38,7 @@ const compareWithComputer = (playerSelection) => {
 
 document.addEventListener('DOMContentLoaded', randomComputerGuess)
 document.querySelector('#player-name-input').onchange = updatePlayerName
-document.querySelector('#rock-button').addEventListener('click', compareForRock)
-document.querySelector('#paper-button').addEventListener('click', compareForPaper)
+document.querySelector('#rock-button').addEventListener('click', () => compareWithComputer('Rock'))
+document.querySelector('#paper-button').addEventListener('click', () => compareWithComputer('Paper'))
 document.querySelector('#scissors-button').addEventListener('click', () => compareWithComputer('Scissors'))
 
