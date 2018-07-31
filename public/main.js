@@ -15,7 +15,6 @@ const randomComputerGuess = () => {
 
 const updatePlayerName = () => {
   const playerName = document.querySelector('#player-name-input').value
-  console.log(playerName)
   document.querySelector('#player-name-display').textContent = playerName
 }
 
@@ -33,15 +32,12 @@ const compareForScissors = () => {
 
 const compareWithComputer = (gameAction) => {
   if (gameAction === randomGuess) {
-    console.log('Go again')
     randomComputerGuess()
   }
   else if ((gameAction === 'Rock' && randomGuess === 'Scissors') || (gameAction === 'Paper' && randomGuess === 'Rock') || (gameAction === 'Scissors' && randomGuess === 'Paper')) {
-    console.log('Good job')
     document.querySelector('#output').textContent = 'Good job'
   }
   else {
-    console.log('You lose')
     document.querySelector('#output').textContent = 'You lose'
   }
 }
