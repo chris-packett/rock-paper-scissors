@@ -26,19 +26,15 @@ const compareForPaper = () => {
   compareWithComputer('Paper')
 }
 
-const compareForScissors = () => {
-  compareWithComputer('Scissors')
-}
-
 const compareWithComputer = (playerSelection) => {
+  const rockWin = playerSelection === 'Rock' && randomGuess === 'Scissors'
+  const paperWin = playerSelection === 'Paper' && randomGuess === 'Rock'
+  const scissorWin = playerSelection === 'Scissors' && randomGuess === 'Paper'
+
   if (playerSelection === randomGuess) {
     randomComputerGuess()
   }
-  else if (
-    (playerSelection === 'Rock' && randomGuess === 'Scissors') || 
-    (playerSelection === 'Paper' && randomGuess === 'Rock') || 
-    (playerSelection === 'Scissors' && randomGuess === 'Paper')
-  ) {
+  else if (rockWin || paperWin || scissorWin) {
     document.querySelector('#output').textContent = 'Good job'
   }
   else {
@@ -50,5 +46,5 @@ document.addEventListener('DOMContentLoaded', randomComputerGuess)
 document.querySelector('#player-name-input').onchange = updatePlayerName
 document.querySelector('#rock-button').addEventListener('click', compareForRock)
 document.querySelector('#paper-button').addEventListener('click', compareForPaper)
-document.querySelector('#scissors-button').addEventListener('click', compareForScissors)
+document.querySelector('#scissors-button').addEventListener('click', () => compareWithComputer('Scissors'))
 
