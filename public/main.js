@@ -30,11 +30,15 @@ const compareForScissors = () => {
   compareWithComputer('Scissors')
 }
 
-const compareWithComputer = (gameAction) => {
-  if (gameAction === randomGuess) {
+const compareWithComputer = (playerSelection) => {
+  if (playerSelection === randomGuess) {
     randomComputerGuess()
   }
-  else if ((gameAction === 'Rock' && randomGuess === 'Scissors') || (gameAction === 'Paper' && randomGuess === 'Rock') || (gameAction === 'Scissors' && randomGuess === 'Paper')) {
+  else if (
+    (playerSelection === 'Rock' && randomGuess === 'Scissors') || 
+    (playerSelection === 'Paper' && randomGuess === 'Rock') || 
+    (playerSelection === 'Scissors' && randomGuess === 'Paper')
+  ) {
     document.querySelector('#output').textContent = 'Good job'
   }
   else {
