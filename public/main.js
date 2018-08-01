@@ -1,3 +1,8 @@
+const updatePlayerName = () => {
+  const playerName = document.querySelector('#player-name-input').value
+  document.querySelector('#player-name-display').textContent = playerName
+}
+
 const rockPaperScissorsDict = {
   1: 'Rock',
   2: 'Paper',
@@ -8,14 +13,8 @@ let randomGuess
 
 const randomComputerGuess = () => {
   const randomNumber = Math.ceil(Math.random() * 3)
-  console.log(randomNumber)
   randomGuess = rockPaperScissorsDict[randomNumber]
   console.log(randomGuess)
-}
-
-const updatePlayerName = () => {
-  const playerName = document.querySelector('#player-name-input').value
-  document.querySelector('#player-name-display').textContent = playerName
 }
 
 const compareWithComputer = (playerSelection) => {
@@ -25,14 +24,18 @@ const compareWithComputer = (playerSelection) => {
 
   if (playerSelection === randomGuess) {
     randomComputerGuess()
-    const message = 'You and the computer picked the same thing! Try again'
+    const message = 'You and the computer picked the same thing! Go again'
     document.querySelector('#output').textContent = message
   }
   else if (rockWin || paperWin || scissorWin) {
-    document.querySelector('#output').textContent = 'Good job'
+    const message = 'Good job. Click another option to play again.'
+    document.querySelector('#output').textContent = message
+    randomComputerGuess()
   }
   else {
-    document.querySelector('#output').textContent = 'You lose'
+    const message = 'You lose. Click another option to play again.'
+    document.querySelector('#output').textContent = message
+    randomComputerGuess()
   }
 }
 

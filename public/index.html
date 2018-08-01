@@ -9,20 +9,32 @@
 </head>
 
 <body>
-  <section class="enter-name-container">
-    <h3>Please enter your name:</h3>
-    <input type="text" placeholder="enter name here" id="player-name-input">
-    <h3>Hello
-      <span id="player-name-display">Player</span>, 
-      let's play a game of rock, paper, scissors!</h3>
+  <section class="enter-name-container-with-welcome">
+    <section class="enter-name-container">
+      <h3>Please enter your name:</h3>
+      <input type="text" placeholder="enter name here" id="player-name-input">
+    </section>
+    <section class="output-message-container">
+      <h3>
+        Hello <span id="player-name-display">Player</span>, let's play a 
+        game of rock, paper, scissors!
+      </h3>
+      <p>
+        The computer has already chosen either rock, paper, or scissors.
+        Please choose amongst the options below and I will tell you if you
+        have won, lost, or have to take another shot at defeating the computer!
+      </p>
+    </section>
   </section>
-  <section class="choices-container">
-    <button id="rock-button">Rock</button>
-    <button id="paper-button">Paper</button>
-    <button id="scissors-button">Scissors</button>
-  </section>
-  <section class="output-container">
-    <h3 id="output"></h3>
+  <section class="choices-and-output-container">
+    <section class="choices-container">
+      <button id="rock-button">Rock</button>
+      <button id="paper-button">Paper</button>
+      <button id="scissors-button">Scissors</button>
+    </section>
+    <section class="output-container">
+      <h3 id="output"></h3>
+    </section>
   </section>
   <script src="/main.js" charset="utf-8"></script>
 </body>
